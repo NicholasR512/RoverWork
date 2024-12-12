@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<%- include('partials/header.ejs') %>
+    <%- include('partials/errorMessage.ejs') %>
+
+        <body>
+            <div class="main"></div>
+            <div class="main-container">
+                <div class="main-content">
+                    <h1>
+                        <% if (user) { %>
+                            Welcome, <%= user.username %>!
+                                <% } else { %>
+                                    Looking for a job?
+                                    <% } %>
+                    </h1>
+                    <p>Learn more with us
+                        and get a job through the School!</p>
+                    <button class="main-btn"><a href="#">Get Started</a></button>
+                </div>
+                <div class="name-img-container">
+                    <img src="/img/job.svg" alt="" id="main-img">
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="about-row">
+                    <div class="about-column left-text">
+                        <h1>Student Benefits</h1>
+                        <p>Applying for jobs as a student helps develop essential skills like time management,
+                            communication, and problem-solving. It also provides valuable work experience, making
+                            resumes more competitive for future careers. Additionally, the process fosters independence
+                            and confidence, encouraging personal and professional growth.
+                        </p>
+                    </div>
+                    <div class="about-image right-image">
+                        <img src="/img/resume.svg" alt="Student Benefits Image">
+                    </div>
+                </div>
+                <div class="about-row about-row-bottom">
+                    <div class="about-image left-image">
+                        <img src="/img/undraw_business_decisions_re_84ag.svg" alt="Business Benefits Image">
+                    </div>
+                    <div class="about-column right-text" id="right-text">
+                        <h1>Business Benefits</h1>
+                        <p>Hiring students benefits businesses by providing access to fresh talent eager to learn and
+                            grow. Students bring energy, adaptability, and a willingness to embrace new ideas, often at
+                            a lower cost than experienced workers. Additionally, businesses can shape young talent to
+                            fit their specific needs while fostering community engagement and goodwill.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </body>
+
+</html>

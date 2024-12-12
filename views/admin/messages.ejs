@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <link rel="stylesheet" href="/styles/message.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+</head>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/errorMessage.ejs') %>
+<body>
+    <div class="container">
+        <div class="messages">
+            <h1>Messages</h1>
+            <% if (messages.length === 0) { %>
+                <p class="no-messages">No messages to display.</p>
+            <% } else { %>
+                <% messages.forEach(msg => { %>
+                    <div class="message-card">
+                        <h3>Subject: <%= msg.subject %></h3>
+                        <p><strong>From:</strong> <%= msg.userEmail %></p>
+                        <p class="message-content"><%= msg.message %></p>
+                        <p><small>Sent on: <%= msg.createdAt.toLocaleString() %></small></p>
+                        <div class="actions">
+                            <a class="button" href="mailto:<%= msg.userEmail %>">Send email</a>
+                            <form action="/admin/messages/<%= msg._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                <button type="submit" class="button delete-button" onclick="return confirm('Are you sure you want to delete this message?')">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

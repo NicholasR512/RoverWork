@@ -1,0 +1,209 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar Spacing Fix */
+body {
+    padding-top: 120px; /* Matches the height of the navbar */
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: black;
+}
+
+
+/* Form Styling */
+form.job-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 75px;
+    justify-content: center;
+}
+
+form.job-filter-form input[type="text"],
+form.job-filter-form input[type="number"],
+form.job-filter-form select,
+form.job-filter-form button,
+form.job-filter-form .reset-button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form.job-filter-form input[type="text"],
+form.job-filter-form input[type="number"],
+form.job-filter-form select {
+    flex: 1 1 200px;
+    background-color: #fff;
+}
+
+form.job-filter-form button {
+    background-color: #f00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form.job-filter-form button:hover {
+    background-color: #f44336;
+}
+
+form.job-filter-form .reset-button {
+    text-decoration: none;
+    background-color: #ddd;
+    color: #333;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+form.job-filter-form .reset-button:hover {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* Job Card Styling */
+.job-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.job-card p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Button Container for Actions */
+.job-card .button-container a,
+.job-card .button-container button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+/* View and Apply Buttons */
+.job-card .button-container #view,
+.job-card .button-container #apply {
+    background-color: #f00;
+    color: white;
+}
+
+.job-card .button-container #view:hover,
+.job-card .button-container #apply:hover {
+    background-color: #f44336;
+}
+
+/* Edit Button */
+.job-card .button-container .edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.job-card .button-container .edit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Delete Button */
+.job-card .button-container .delete-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.job-card .button-container .delete-button:hover {
+    background-color: #5a6268;
+}
+
+#approve button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    background-color: #f00;
+    color: white;
+}
+
+/* Divider */
+hr.divider {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+    form.job-filter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form.job-filter-form input,
+    form.job-filter-form select,
+    form.job-filter-form button {
+        width: 100%;
+        max-height: 50px;
+    }
+
+    .job-card {
+        padding: 15px;
+    }
+
+    .job-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .job-card .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .job-card .button-container a,
+    .job-card .button-container button {
+        width: 100%;
+    }
+}
+

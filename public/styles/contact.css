@@ -1,0 +1,91 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styles */
+body {
+    padding-top: 120px; /* Matches the height of the navbar */
+  background: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+}
+
+h1{
+    font-size: 2.5rem;
+    text-align: center;
+    color: black;
+}
+
+hr{
+    margin-bottom: 20px;
+}
+
+h2{
+    font-size: 1.25rem;
+}
+
+/* Adjusted container styles */
+.container {
+  max-width: 800px; /* Increased from 430px to 800px */
+  width: 90%;       /* Make it responsive */
+  margin: 50px auto; /* Center the container with margin */
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  padding: 2rem;    /* Added padding to the container */
+}
+
+/* Removed absolute positioning */
+.contact.form {
+  width: 100%;
+}
+
+/* Input and textarea styles */
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 17px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 1.3rem;
+  outline: none;
+}
+
+.form textarea {
+  resize: none;    /* Disable manual resizing */
+  height: 160px;   /* Set a fixed height */
+}
+
+/* Submit button styles */
+.form input.button {
+  width: 100%;
+  padding: 15px;
+  background: #F00;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form input.button:hover {
+  background: #d80909;
+}
+
+/* Optional: Adjust form labels */
+.form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+  }

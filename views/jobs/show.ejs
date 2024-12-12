@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/show.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+</head>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/errorMessage.ejs') %>
+<body>
+    <div class="job-card">
+        <h1>Job Details</h1>
+        <div class="job-detail">
+            <strong>Title:</strong> <%= job.title %>
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Company:</strong> <%= job.company %>
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Description:</strong> <%= job.description %>
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Minimum Pay:</strong> $<%= job.minSalary %> an hour
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Maximum Pay:</strong> $<%= job.maxSalary %> an hour
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Job Type:</strong> <%= job.jobType %>
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>City:</strong> <%= job.city %>
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Address:</strong> <%= job.address %>
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Required Age:</strong> <%= job.requiredAge %>
+        </div>
+        <hr>
+        <div class="job-detail">
+            <strong>Date Posted:</strong> <%= job.createdAt.toDateString() %>
+        </div>
+        <hr>
+        <br>
+        <% if (currentUser && currentUser.role === 'Student') { %>
+            <a href="/applications/apply/<%= job.id %>" id="apply">Apply</a>
+        <% } else { %>  
+            <span>   
+            <a href="/jobs/<%= job.id %>/edit" id="edit">Edit</a>
+            <%- include('../partials/deleteForm', { url: `/jobs/${job.id}` }) %>
+        </span>  
+        <% } %>       
+    </div>
+
+</body>
+</html> 

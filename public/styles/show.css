@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+    padding-top: 120px; /* Matches the height of the navbar */
+}
+/* Card Container */
+.job-card {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Job Details */
+.job-detail {
+    margin-bottom: 15px;
+}
+
+.job-detail strong {
+    color: #F00;
+}
+
+/* Button */
+#apply {
+    background-color: #f00;
+    color: white;
+    padding: 7px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 40%;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+div button {
+    background-color: #f00;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+div button:hover {
+    background-color: #f44336;
+}
+
+#edit {
+    background-color: #f00;
+    color: white;
+    padding: 7px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+span{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-left: 30%;
+}
