@@ -16,15 +16,19 @@
             <div class="main"></div>
             <div class="main-container">
                 <div class="main-content">
-                    <h1>
                         <% if (user) { %>
-                            Welcome, <%= user.username %>!
+                            <h1>Welcome, <%= user.username %>!</h1>
+                            <% if (user.role === 'Admin') { %>
+                                <p>Manage jobs and messages!</p>
+                                    <% } else if(user.role === 'Business'){ %>
+                                        <p>Post jobs for Easton and get eager applicants!</p>
+                                        <% } else{%>
+                                            <p>Learn more with us
+                                                and get a job through the School!</p>
+                                        <% } %>
                                 <% } else { %>
-                                    Looking for a job?
+                                    <h1>Looking for a job?</h1>
                                     <% } %>
-                    </h1>
-                    <p>Learn more with us
-                        and get a job through the School!</p>
                     <button class="main-btn"><a href="#">Get Started</a></button>
                 </div>
                 <div class="name-img-container">
