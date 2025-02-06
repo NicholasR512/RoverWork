@@ -33,7 +33,7 @@ body {
     align-items: center;
     height: 80px;
     width: 100%; /* Ensures it stretches across the screen */
-    padding: 0 20px; /* Adds padding for spacing */
+    padding: 0 30px; /* Adds padding for spacing */
 }
 
 /* Logo */
@@ -48,8 +48,7 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
     gap: 20px;
 }
 
@@ -117,15 +116,16 @@ body {
 }
 
 /* Mobile Menu Styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 890px) {
     .menu-toggle {
         display: flex; /* Show hamburger menu for mobile screens */
-        margin-left: 160px;
+        margin-left: 90%;
     }
 
     .nav-menu {
         display: none; /* Hidden by default for mobile screens */
         flex-direction: column;
+        align-items: center;
         background-color: white;
         position: absolute;
         top: 80px;
