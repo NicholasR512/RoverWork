@@ -74,6 +74,7 @@ app.use(
 // Flash Messages Middleware
 app.use(flash());
 
+
 // Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());

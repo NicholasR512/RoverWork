@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/form.css">
     <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
     <title>Document</title>
 </head>
+
 <body>
     <%- include('../partials/header.ejs') %>
-    <%- include('../partials/errorMessage.ejs') %>
-    <h1>Edit Job</h1>
-    <form action="/jobs/<%= job.id %>?_method=PUT" method="POST">
-        <%- include('form_fields2') %>
-    </form>
+        <%- include('../partials/errorMessage.ejs') %>
+            <h2>Edit Job</h2>
+            <form action="/jobs/<%= job.id %>?_method=PUT" method="POST">
+                <%- include('form_fields2') %>
+            </form>
+            <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>

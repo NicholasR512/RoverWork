@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact us</title>
+    <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="/styles/navbar.css">
 </head>
-<%- include('./partials/header.ejs') %>
+
 <%- include('./partials/errorMessage.ejs') %>
-<body>
-    <div class="container">
-        <div class="contact form">
-            <h1>Contact Administrators</h1>
-            <hr>
-            <form action="/contact" method="POST">
-                <label for="subject"><h2>Subject</h2></label>
-                <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
 
-                <label for="message"><h2>Message</h2></label>
-                <textarea id="message" name="message" rows="8" placeholder="Enter your message" required></textarea>
+    <body>
+        <%- include('./partials/header.ejs') %>
+            <div class="container">
+                <div class="contact form">
+                    <h2>Contact Administrators</h2>
+                    <hr>
+                    <form action="/contact" method="POST">
+                        <label for="subject">
+                            <h3>Subject</h3>
+                        </label>
+                        <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
 
-                <input type="submit" class="button" value="Send">
-            </form>
-        </div>
-    </div>
-</body>
+                        <label for="message">
+                            <h3>Message</h3>
+                        </label>
+                        <textarea id="message" name="message" rows="8" placeholder="Enter your message"
+                            required></textarea>
+
+                        <input type="submit" class="button" value="Send">
+                    </form>
+                </div>
+            </div>
+            <%- include('./partials/footer.ejs') %>
+    </body>
+
 </html>
