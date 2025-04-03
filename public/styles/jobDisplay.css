@@ -155,6 +155,10 @@ hr.divider {
     margin: 20px 0;
 }
 
+.push {
+    padding-top: 8rem;
+}
+
 /* Responsive Design */
 @media (max-width: 700px) {
     form.job-filter-form {

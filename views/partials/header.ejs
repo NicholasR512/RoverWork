@@ -15,6 +15,7 @@
                 <% if (currentUser) { %>
                     <% if (currentUser.role==='Admin' ) { %>
                         <a href="/jobs">Current Jobs</a>
+                        <a href="/jobs/pending">Pending Jobs</a>
                         <a href="/admin/messages">View Messages</a>
                         <% } else if (currentUser.role==='Business' ) { %>
                             <a href="/jobs/new">Add Job</a>
@@ -39,6 +40,7 @@
             <% if (currentUser) { %>
                 <% if (currentUser.role==='Admin' ) { %>
                     <a href="/jobs">Current Jobs</a>
+                    <a href="/jobs/pending">Pending Jobs</a>
                     <a href="/admin/messages">View Messages</a>
                     <% } else if (currentUser.role==='Business' ) { %>
                         <a href="/jobs/new">Add Job</a>
