@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,47 +8,148 @@
   <!-- Link to Custom CSS -->
   <link rel="stylesheet" href="/styles/application.css">
   <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/footer.css">
   <!-- Include FontAwesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-  <%- include('./partials/header.ejs') %>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    window.onload = function () {
+      AOS.init();
+    };
+  </script>
+
+  <header>
+    <section class="nav-section">
+      <div class="nav-container">
+        <div class="logo">
+          <a href="/"><img src="/img/logo.png" alt="Logo" height="50vh"></a>
+        </div>
+        <div class="nav-links">
+          <% if (currentUser) { %>
+            <% if (currentUser.role==='Admin' ) { %>
+              <a href="/jobs">Current Jobs</a>
+              <a href="/jobs/pending">Pending Jobs</a>
+              <a href="/admin/messages">View Messages</a>
+              <% } else if (currentUser.role==='Business' ) { %>
+                <a href="/jobs/new">Add Job</a>
+                <a href="/jobs">Current Jobs</a>
+                <% } else if (currentUser.role==='Student' ) { %>
+                  <a href="/jobs">Search Jobs</a>
+                  <a href="/contact">Contact Us</a>
+                  <% } %>
+                    <a href="/auth/logout" class="CTA-btn" style="color: white;">Logout</a>
+                    <% } else { %>
+                      <a href="/auth/login">Login</a>
+                      <a href="/auth/register" class="CTA-btn" style="color: white;">Register</a>
+                      <% } %>
+        </div>
+        <div class="hamburger" onclick="showHamburger()">
+          ☰
+        </div>
+      </div>
+    </section>
+    <div class="hamburger-nav">
+      <div class="hamburger-nav-links">
+        <% if (currentUser) { %>
+          <% if (currentUser.role==='Admin' ) { %>
+            <a href="/jobs">Current Jobs</a>
+            <a href="/jobs/pending">Pending Jobs</a>
+            <a href="/admin/messages">View Messages</a>
+            <% } else if (currentUser.role==='Business' ) { %>
+              <a href="/jobs/new">Add Job</a>
+              <a href="/jobs">Current Jobs</a>
+              <% } else if (currentUser.role==='Student' ) { %>
+                <a href="/jobs">Search Jobs</a>
+                <a href="/contact">Contact Us</a>
+                <% } %>
+                  <a href="/auth/logout" class="CTA-btn" style="color: white;">Logout</a>
+                  <% } else { %>
+                    <a href="/auth/login">Login</a>
+                    <a href="/auth/register" class="CTA-btn" style="color: white;">Register</a>
+                    <% } %>
+      </div>
+    </div>
+  </header>
+
+  <!-- JavaScript for handling navbar functionality -->
+  <script>
+    var shown = false;
+
+    function showHamburger() {
+      if (shown == false) {
+        document.querySelector(".hamburger-nav").style.display = "block";
+        document.querySelector(".hamburger").innerHTML = "×";
+        shown = true;
+      } else {
+        document.querySelector(".hamburger-nav").style.display = "none";
+        document.querySelector(".hamburger").innerHTML = "☰";
+        shown = false;
+      }
+
+    }
+  </script>
   <%- include('./partials/errorMessage.ejs') %>
 
-  <div class="form-wrapper">
-    <div class="container">
-      <div class="form-header">
-        <h1>Apply for <%= job.title %></h1>
+    <div class="form-wrapper">
+      <div class="container">
+        <div class="form-header">
+          <h1>Apply for <%= job.title %>
+          </h1>
+        </div>
+        <form action="/applications" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="jobId" value="<%= job._id %>">
+
+          <!-- Applicant Name -->
+          <label for="applicantName">Full Name</label>
+          <input type="text" id="applicantName" name="applicantName" placeholder="Enter your full name"
+            value="<%= currentUser.username %>" required>
+
+          <!-- Email -->
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" value="<%= currentUser.email %>"
+            required readonly>
+
+          <!-- Phone Number -->
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+          <!-- Cover Letter -->
+          <label for="coverLetter">Cover Letter (Optional)</label>
+          <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="Write a brief cover letter"></textarea>
+
+          <!-- Resume Upload -->
+          <label for="resume">Upload Resume</label>
+          <input type="file" id="resume" name="resume" accept=".pdf" required>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-button">Submit Application</button>
+        </form>
       </div>
-      <form action="/applications" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="jobId" value="<%= job._id %>">
-
-        <!-- Applicant Name -->
-        <label for="applicantName">Full Name</label>
-        <input type="text" id="applicantName" name="applicantName" placeholder="Enter your full name" value="<%= currentUser.username %>" required>
-
-        <!-- Email -->
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" value="<%= currentUser.email %>" required readonly>
-
-        <!-- Phone Number -->
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-
-        <!-- Cover Letter -->
-        <label for="coverLetter">Cover Letter (Optional)</label>
-        <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="Write a brief cover letter"></textarea>
-
-        <!-- Resume Upload -->
-        <label for="resume">Upload Resume</label>
-        <input type="file" id="resume" name="resume" accept=".pdf" required>
-
-        <!-- Submit Button -->
-        <button type="submit" class="submit-button">Submit Application</button>
-      </form>
     </div>
-  </div>
-  <%- include('./partials/chatbot') %>
+    <section class="footer-section">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <a href="/home.html"><img src="/img/logo.png" alt="Logo" height="30vh"></a>
+        </div>
+        <div class="footer-links">
+          <div class="footer-left">
+            <a href="" class="link-1">Contact Us</a>
+            <a href="" class="link-2">FAQs</a>
+            <a href="" class="link-3">Sources</a>
+            <a href="/PRIVACY_POLICY.txt" class="link-4" download>Privacy Policy</a>
+            <a href="/TERMS_OF_SERVICE.txt" class="link-5" download>Terms of Service</a>
+          </div>
+          <div class="footer-right">
+            <p>© RoverWork 2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./chatbot') %>
 
 </body>
+
 </html>
