@@ -26,6 +26,7 @@
 .footer-left a {
     color: var(--black);
     transition: 0.3s;
+    font-size: clamp(1rem, 1vw, 1.75rem);
 }
 
 .footer-left a:hover {
