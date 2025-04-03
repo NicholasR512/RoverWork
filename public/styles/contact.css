@@ -1,45 +1,29 @@
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-/* Reset styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+h2 {
+  text-align: center;
+  color: black;
 }
 
-/* Body Styles */
-body {
-    padding-top: 120px; /* Matches the height of the navbar */
-  background: #f9f9f9;
-  color: #333;
-  min-height: 100vh;
-}
-
-h1{
-    font-size: 2.5rem;
-    text-align: center;
-    color: black;
-}
-
-hr{
-    margin-bottom: 20px;
-}
-
-h2{
-    font-size: 1.25rem;
+hr {
+  margin-bottom: 20px;
+  border-top: 3px solid #ff0000;
 }
 
 /* Adjusted container styles */
 .container {
-  max-width: 800px; /* Increased from 430px to 800px */
-  width: 90%;       /* Make it responsive */
-  margin: 50px auto; /* Center the container with margin */
+  max-width: 800px;
+  /* Increased from 430px to 800px */
+  width: 90%;
+  /* Make it responsive */
+  margin: 50px auto;
+  /* Center the container with margin */
   background: #fff;
   border-radius: 7px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-  padding: 2rem;    /* Added padding to the container */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  /* Added padding to the container */
 }
 
 /* Removed absolute positioning */
@@ -50,7 +34,7 @@ h2{
 /* Input and textarea styles */
 .form input,
 .form textarea {
-  width: 100%;
+  width: 96%;
   padding: 15px;
   font-size: 17px;
   border: 1px solid #ddd;
@@ -60,8 +44,10 @@ h2{
 }
 
 .form textarea {
-  resize: none;    /* Disable manual resizing */
-  height: 160px;   /* Set a fixed height */
+  resize: none;
+  /* Disable manual resizing */
+  height: 160px;
+  /* Set a fixed height */
 }
 
 /* Submit button styles */
@@ -75,7 +61,6 @@ h2{
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .form input.button:hover {
@@ -84,8 +69,13 @@ h2{
 
 /* Optional: Adjust form labels */
 .form label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #333;
-  }
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type=text]:focus,
+textarea:focus {
+  border: 3px solid #ff0000;
+}

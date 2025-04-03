@@ -74,6 +74,7 @@ app.use(
 // Flash Messages Middleware
 app.use(flash());
 
+
 // Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -93,6 +94,9 @@ app.use('/auth', authRouter); // Authentication routes
 app.use('/admin', adminRouter); // Admin routes
 app.use('/contact', contactRoute); // Contact routes
 app.use('/applications', applicationRoutes); // Application routes
+
+app.use('/uploads', express.static('uploads'));
+
 
 // Start the server
 app.listen(process.env.PORT || 3000, () => {

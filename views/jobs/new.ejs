@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,18 @@
     <link rel="stylesheet" href="/styles/form.css">
     <link rel="stylesheet" href="/styles/new.css">
     <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+
 </head>
+
 <body>
     <%- include('../partials/header.ejs') %>
-    <%- include('../partials/errorMessage.ejs') %>
-    <h1>Add Jobs</h1>
-    <form action="/jobs" method="POST"  onsubmit="return validateSalary()">
-    <%- include('form_fields1') %>
-</form>
+        <%- include('../partials/errorMessage.ejs') %>
+            <h2>Add Jobs</h2>
+            <form action="/jobs" method="POST" onsubmit="return validateSalary()">
+                <%- include('form_fields1') %>
+            </form>
+            <%- include('../partials/footer.ejs') %>
 </body>
 <script>
     function validateSalary() {
@@ -28,4 +33,5 @@
         return true; // Allow form submission
     }
 </script>
+
 </html>

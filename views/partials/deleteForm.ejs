@@ -1,3 +1,3 @@
 <form method="POST" action="<%= url %>?_method=DELETE">
-    <button type="submit" id="del-btn">Delete</button>
+    <button type="submit" id="del-btn" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
 </form>

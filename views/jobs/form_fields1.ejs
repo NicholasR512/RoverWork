@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Card</title>
 </head>
+
 <body>
     <div class="card">
         <div>
@@ -30,17 +32,17 @@
         <div>
             <label>Part or Full Time</label>
             <select name="jobType">
-                <option value="Part Time" <%= job.jobType === 'Part Time' ? 'selected' : '' %>>Part Time</option>
-                <option value="Full Time" <%= job.jobType === 'Full Time' ? 'selected' : '' %>>Full Time</option>
+                <option value="Part Time" <%=job.jobType==='Part Time' ? 'selected' : '' %>>Part Time</option>
+                <option value="Full Time" <%=job.jobType==='Full Time' ? 'selected' : '' %>>Full Time</option>
             </select>
         </div>
         <div>
             <label>City</label>
             <select name="city">
-                <option value="Easton" <%= job.city === 'Easton' ? 'selected' : '' %>>Easton</option>
-                <option value="Wilson" <%= job.city === 'Wilson' ? 'selected' : '' %>>Wilson</option>
-                <option value="Bethlehem" <%= job.city === 'Bethlehem' ? 'selected' : '' %>>Bethlehem</option>
-                <option value="Nazareth" <%= job.city === 'Nazareth' ? 'selected' : '' %>>Nazareth</option>
+                <option value="Easton" <%=job.city==='Easton' ? 'selected' : '' %>>Easton</option>
+                <option value="Wilson" <%=job.city==='Wilson' ? 'selected' : '' %>>Wilson</option>
+                <option value="Bethlehem" <%=job.city==='Bethlehem' ? 'selected' : '' %>>Bethlehem</option>
+                <option value="Nazareth" <%=job.city==='Nazareth' ? 'selected' : '' %>>Nazareth</option>
             </select>
         </div>
         <div>
@@ -51,8 +53,9 @@
             <label>Required Age</label>
             <input type="number" name="requiredAge" min="14" value="<%= job.requiredAge %>">
         </div>
-        <button type="submit">Create</button>
-        <a href="/jobs">Cancel</a>
+        <button type="submit" id="add-job-btn">Create</button>
+        <a href="/jobs" id="add-job-btn">Cancel</a>
     </div>
 </body>
+
 </html>

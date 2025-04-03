@@ -66,7 +66,7 @@ router.post('/', upload.single('resume'), async (req, res) => {
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${phone}</p>
                 <p><strong>Cover Letter:</strong> ${coverLetter || 'Not provided'}</p>
-                <p><a href="${req.protocol}://${req.get('host')}/${req.file.path}" target="_blank">View Resume</a></p>
+                <p><a href="${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, '/')}" target="_blank">View Resume</a></p>
             `, // Email content
         };
 

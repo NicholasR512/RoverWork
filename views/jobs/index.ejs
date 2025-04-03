@@ -1,80 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Current Jobs</title>
     <link rel="stylesheet" href="/styles/jobDisplay.css">
     <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
 </head>
-<%- include('../partials/header.ejs') %>
+
 <%- include('../partials/errorMessage.ejs') %>
-<body>
-    <h1 id="jobs">Current Jobs</h1>
 
-    <!-- Search, Sort, and Filter Form -->
-    <form action="/jobs" method="GET" class="job-filter-form">
-        <!-- Search -->
-        <input type="text" name="search" placeholder="Search by title or description" value="<%= query.search || '' %>">
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <h2 id="jobs">Current Jobs</h2>
+            <div class="full-job-container">
+                <!-- Search, Sort, and Filter Form -->
+                <form action="/jobs" method="GET" class="job-filter-form">
+                    <!-- Search -->
+                    <input type="text" name="search" placeholder="Search by title or description"
+                        value="<%= query.search || '' %>">
 
-        <!-- Filter by City -->
-        <select name="city">
-            <option value="">All Cities</option>
-            <option value="Easton" <%= query.city === 'Easton' ? 'selected' : '' %>>Easton</option>
-            <option value="Wilson" <%= query.city === 'Wilson' ? 'selected' : '' %>>Wilson</option>
-            <option value="Bethlehem" <%= query.city === 'Bethlehem' ? 'selected' : '' %>>Bethlehem</option>
-            <option value="Nazareth" <%= query.city === 'Nazareth' ? 'selected' : '' %>>Nazareth</option>
-        </select>
+                    <!-- Filter by City -->
+                    <select name="city">
+                        <option value="">All Cities</option>
+                        <option value="Easton" <%=query.city==='Easton' ? 'selected' : '' %>>Easton</option>
+                        <option value="Wilson" <%=query.city==='Wilson' ? 'selected' : '' %>>Wilson</option>
+                        <option value="Bethlehem" <%=query.city==='Bethlehem' ? 'selected' : '' %>>Bethlehem</option>
+                        <option value="Nazareth" <%=query.city==='Nazareth' ? 'selected' : '' %>>Nazareth</option>
+                    </select>
 
-        <!-- Filter by Job Type -->
-        <select name="jobType">
-            <option value="">All Job Types</option>
-            <option value="Full Time" <%= query.jobType === 'Full Time' ? 'selected' : '' %>>Full Time</option>
-            <option value="Part Time" <%= query.jobType === 'Part Time' ? 'selected' : '' %>>Part Time</option>
-        </select>
+                    <!-- Filter by Job Type -->
+                    <select name="jobType">
+                        <option value="">All Job Types</option>
+                        <option value="Full Time" <%=query.jobType==='Full Time' ? 'selected' : '' %>>Full Time</option>
+                        <option value="Part Time" <%=query.jobType==='Part Time' ? 'selected' : '' %>>Part Time</option>
+                    </select>
 
-        <!-- Filter by Salary -->
-        <input type="number" name="minSalary" placeholder="Min Pay Per Hour" value="<%= query.minSalary || '' %>">
+                    <!-- Filter by Salary -->
+                    <input type="number" name="minSalary" placeholder="Min Pay Per Hour"
+                        value="<%= query.minSalary || '' %>">
 
-        <!-- Sort -->
-        <select name="sort">
-            <option value="">Sort By</option>
-            <option value="date" <%= query.sort === 'date' ? 'selected' : '' %>>Newest</option>
-            <option value="salary" <%= query.sort === 'salary' ? 'selected' : '' %>>Salary</option>
-        </select>
+                    <!-- Sort -->
+                    <select name="sort">
+                        <option value="">Sort By</option>
+                        <option value="date" <%=query.sort==='date' ? 'selected' : '' %>>Newest</option>
+                        <option value="salary" <%=query.sort==='salary' ? 'selected' : '' %>>Salary</option>
+                    </select>
 
-        <button type="submit">Search</button>
-        <!-- Reset Filters Button -->
-        <a href="/jobs" class="reset-button">Reset Filters</a>
-    </form>
+                    <button type="submit">Search</button>
+                    <!-- Reset Filters Button -->
+                    <a href="/jobs" class="reset-button">Reset Filters</a>
+                </form>
 
-    <% if (jobs.length === 0) { %>
-        <p>No jobs to display.</p>
-    <% } else { %>
-        <% jobs.forEach(job => { %>
-            <div class="job-card">
-                <h3><%= job.title %></h3>
-                <p>Company: <%= job.company %></p>
-                <p>City: <%= job.city %></p>
-                <p>Type: <%= job.jobType %></p>
-                <p>Salary: $<%= job.minSalary %> - $<%= job.maxSalary %></p>
-                <p>Posted: <%= job.createdAt.toDateString() %></p>
-            
-                <div class="button-container">
-                    <a href="/jobs/<%= job.id %>" id="view">View</a>
-                    <% if (currentUser && currentUser.role === 'Student') { %>
-                        <a href="/applications/apply/<%= job.id %>" id="apply">Apply</a>
-                    <% } %>
-                    <% if (user.role === 'Admin' || (user.role === 'Business' && job.businessEmail === user.email)) { %>
-                        <a href="/jobs/<%= job.id %>/edit" class="edit-button">Edit</a>
-                        <form method="POST" action="/jobs/<%= job.id %>?_method=DELETE" style="display:inline;">
-                            <button type="submit" class="delete-button">Delete</button>
-                        </form>
-                        <p>Status: <strong><%= job.status %></strong></p>
-                    <% } %>
-                </div>
+                <% if (jobs.length===0) { %>
+                    <p>No jobs to display.</p>
+                    <% } else { %>
+                        <% jobs.forEach(job=> { %>
+                            <div class="job-card">
+                                <h3>
+                                    <%= job.title %>
+                                </h3>
+                                <p>Company: <%= job.company %>
+                                </p>
+                                <p>City: <%= job.city %>
+                                </p>
+                                <p>Type: <%= job.jobType %>
+                                </p>
+                                <p>Salary: $<%= job.minSalary %> - $<%= job.maxSalary %>
+                                </p>
+                                <p>Posted: <%= job.createdAt.toDateString() %>
+                                </p>
+
+                                <div class="button-container">
+                                    <a href="/jobs/<%= job.id %>" id="view">View</a>
+                                    <% if (currentUser && currentUser.role==='Student' ) { %>
+                                        <a href="/applications/apply/<%= job.id %>" id="apply">Apply</a>
+                                        <% } %>
+                                            <% if (user.role==='Admin' || (user.role==='Business' &&
+                                                job.businessEmail===user.email)) { %>
+                                                <a href="/jobs/<%= job.id %>/edit" class="edit-button">Edit</a>
+                                                <form method="POST" action="/jobs/<%= job.id %>?_method=DELETE"
+                                                    style="display:inline;">
+                                                    <button type="submit" class="delete-button"
+                                                        onclick="return confirm('Are you sure you want to delete this job?')">Delete</button>
+                                                </form>
+                                                <p>Status: <strong>
+                                                        <%= job.status %>
+                                                    </strong></p>
+                                                <% } %>
+                                </div>
+                            </div>
+                            <% }) %>
+                                <% } %>
             </div>
-        <% }) %>
-    <% } %>
-</body>
+            <div class="push"></div>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
 </html>

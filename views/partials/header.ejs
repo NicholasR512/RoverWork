@@ -1,49 +1,77 @@
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    window.onload = function () {
+        AOS.init();
+    };
+</script>
+
 <header>
-    <!-- Container for the navigation bar -->
-    <div class="nav-container">
-        <nav class="navbar">
-            <!-- Logo with a link to the homepage -->
-            <h1 id="navbar-logo"><a href="/">RoverWork</a></h1>
-            
-            <!-- Navigation menu -->
-            <ul class="nav-menu">
-                <!-- Always-visible Home link -->
-                <li><a href="/" class="nav-links">Home</a></li>
-                
-                <!-- Conditional rendering based on user roles -->
-                <% if (currentUser) { %>
-                    <% if (currentUser.role === 'Admin') { %>
-                        <!-- Links visible to Admin users -->
-                        <li><a href="/jobs" class="nav-links">Current Jobs</a></li>
-                        <li><a href="/jobs/pending" class="nav-links">Pending Jobs</a></li>
-                        <li><a href="/admin/messages" class="nav-links">View Messages</a></li>
-                    <% } else if (currentUser.role === 'Business') { %>
-                        <!-- Links visible to Business users -->
-                        <li><a href="/jobs/new" class="nav-links">Add Job</a></li>
-                        <li><a href="/jobs" class="nav-links">Current Jobs</a></li>
-                    <% } else if (currentUser.role === 'Student') { %>
-                        <!-- Links visible to Student users -->
-                        <li><a href="/jobs" class="nav-links">Search Jobs</a></li>
-                        <li><a href="/contact" class="nav-links">Contact Us</a></li>
-                    <% } %>
-                    <!-- Logout link available to all logged-in users -->
-                    <li><a href="/auth/logout" class="nav-links nav-links-btn">Logout</a></li>
-                <% } else { %>
-                    <!-- Links for users who are not logged in -->
-                    <li><a href="/auth/login" class="nav-links">Login</a></li>
-                    <li><a href="/auth/register" class="nav-links nav-links-btn">Register</a></li>
-                <% } %>
-            </ul>
-            
-            <!-- Hamburger menu icon for mobile view -->
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <section class="nav-section">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/"><img src="../img/logo.png" alt="Logo" height="50vh"></a>
             </div>
-        </nav>
+            <div class="nav-links">
+                <% if (currentUser) { %>
+                    <% if (currentUser.role==='Admin' ) { %>
+                        <a href="/jobs">Current Jobs</a>
+                        <a href="/jobs/pending">Pending Jobs</a>
+                        <a href="/admin/messages">View Messages</a>
+                        <% } else if (currentUser.role==='Business' ) { %>
+                            <a href="/jobs/new">Add Job</a>
+                            <a href="/jobs">Current Jobs</a>
+                            <% } else if (currentUser.role==='Student' ) { %>
+                                <a href="/jobs">Search Jobs</a>
+                                <a href="/contact">Contact Us</a>
+                                <% } %>
+                                    <a href="/auth/logout" class="CTA-btn" style="color: white;">Logout</a>
+                                    <% } else { %>
+                                        <a href="/auth/login">Login</a>
+                                        <a href="/auth/register" class="CTA-btn" style="color: white;">Register</a>
+                                        <% } %>
+            </div>
+            <div class="hamburger" onclick="showHamburger()">
+                ☰
+            </div>
+        </div>
+    </section>
+    <div class="hamburger-nav">
+        <div class="hamburger-nav-links">
+            <% if (currentUser) { %>
+                <% if (currentUser.role==='Admin' ) { %>
+                    <a href="/jobs">Current Jobs</a>
+                    <a href="/jobs/pending">Pending Jobs</a>
+                    <a href="/admin/messages">View Messages</a>
+                    <% } else if (currentUser.role==='Business' ) { %>
+                        <a href="/jobs/new">Add Job</a>
+                        <a href="/jobs">Current Jobs</a>
+                        <% } else if (currentUser.role==='Student' ) { %>
+                            <a href="/jobs">Search Jobs</a>
+                            <a href="/contact">Contact Us</a>
+                            <% } %>
+                                <a href="/auth/logout" class="CTA-btn" style="color: white;">Logout</a>
+                                <% } else { %>
+                                    <a href="/auth/login">Login</a>
+                                    <a href="/auth/register" class="CTA-btn" style="color: white;">Register</a>
+                                    <% } %>
+        </div>
     </div>
 </header>
 
 <!-- JavaScript for handling navbar functionality -->
-<script src="/script/navbar.js"></script>
+<script>
+    var shown = false;
+
+    function showHamburger() {
+        if (shown == false) {
+            document.querySelector(".hamburger-nav").style.display = "block";
+            document.querySelector(".hamburger").innerHTML = "×";
+            shown = true;
+        } else {
+            document.querySelector(".hamburger-nav").style.display = "none";
+            document.querySelector(".hamburger").innerHTML = "☰";
+            shown = false;
+        }
+
+    }
+</script>

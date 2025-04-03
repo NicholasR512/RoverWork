@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-* {
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    padding-top: 120px;
-    /* Matches the height of the navbar */
-}
 
 /* Card Container */
 .job-card {
@@ -21,9 +13,8 @@ body {
     color: #333;
 }
 
-h1 {
+h2 {
     text-align: center;
-    font-size: 2.5rem;
 }
 
 /* Job Details */
