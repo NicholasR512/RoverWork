@@ -1,4 +1,4 @@
-+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,16 @@
     <title>Messages</title>
     <link rel="stylesheet" href="/styles/message.css">
     <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
 </head>
+<style>
+    .footer-section {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+</style>
 <%- include('../partials/header.ejs') %>
     <%- include('../partials/errorMessage.ejs') %>
 
@@ -42,6 +51,8 @@
                                     <% } %>
                 </div>
             </div>
+            <%- include('../partials/footer.ejs') %>
+                <%- include('../chatbot') %>
         </body>
 
 </html>
