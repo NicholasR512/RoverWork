@@ -11,13 +11,107 @@
 </head>
 
 <body>
-    <%- include('../partials/header.ejs') %>
-        <%- include('../partials/errorMessage.ejs') %>
-            <h2>Edit Job</h2>
-            <form action="/jobs/<%= job.id %>?_method=PUT" method="POST">
-                <%- include('form_fields2') %>
-            </form>
-            <%- include('../partials/footer.ejs') %>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        window.onload = function () {
+            AOS.init();
+        };
+    </script>
+
+    <header>
+        <section class="nav-section">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="/"><img src="/img/logo.png" alt="Logo" height="50vh"></a>
+                </div>
+                <div class="nav-links">
+                    <% if (currentUser) { %>
+                        <% if (currentUser.role==='Admin' ) { %>
+                            <a href="/jobs">Current Jobs</a>
+                            <a href="/jobs/pending">Pending Jobs</a>
+                            <a href="/admin/messages">View Messages</a>
+                            <% } else if (currentUser.role==='Business' ) { %>
+                                <a href="/jobs/new">Add Job</a>
+                                <a href="/jobs">Current Jobs</a>
+                                <% } else if (currentUser.role==='Student' ) { %>
+                                    <a href="/jobs">Search Jobs</a>
+                                    <a href="/contact">Contact Us</a>
+                                    <% } %>
+                                        <a href="/auth/logout" class="CTA-btn" style="color: white;">Logout</a>
+                                        <% } else { %>
+                                            <a href="/auth/login">Login</a>
+                                            <a href="/auth/register" class="CTA-btn" style="color: white;">Register</a>
+                                            <% } %>
+                </div>
+                <div class="hamburger" onclick="showHamburger()">
+                    ☰
+                </div>
+            </div>
+        </section>
+        <div class="hamburger-nav">
+            <div class="hamburger-nav-links">
+                <% if (currentUser) { %>
+                    <% if (currentUser.role==='Admin' ) { %>
+                        <a href="/jobs">Current Jobs</a>
+                        <a href="/jobs/pending">Pending Jobs</a>
+                        <a href="/admin/messages">View Messages</a>
+                        <% } else if (currentUser.role==='Business' ) { %>
+                            <a href="/jobs/new">Add Job</a>
+                            <a href="/jobs">Current Jobs</a>
+                            <% } else if (currentUser.role==='Student' ) { %>
+                                <a href="/jobs">Search Jobs</a>
+                                <a href="/contact">Contact Us</a>
+                                <% } %>
+                                    <a href="/auth/logout" class="CTA-btn" style="color: white;">Logout</a>
+                                    <% } else { %>
+                                        <a href="/auth/login">Login</a>
+                                        <a href="/auth/register" class="CTA-btn" style="color: white;">Register</a>
+                                        <% } %>
+            </div>
+        </div>
+    </header>
+
+    <!-- JavaScript for handling navbar functionality -->
+    <script>
+        var shown = false;
+
+        function showHamburger() {
+            if (shown == false) {
+                document.querySelector(".hamburger-nav").style.display = "block";
+                document.querySelector(".hamburger").innerHTML = "×";
+                shown = true;
+            } else {
+                document.querySelector(".hamburger-nav").style.display = "none";
+                document.querySelector(".hamburger").innerHTML = "☰";
+                shown = false;
+            }
+
+        }
+    </script>
+    <%- include('../partials/errorMessage.ejs') %>
+        <h2>Edit Job</h2>
+        <form action="/jobs/<%= job.id %>?_method=PUT" method="POST">
+            <%- include('form_fields2') %>
+        </form>
+        <section class="footer-section">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <a href="/home.html"><img src="/img/logo.png" alt="Logo" height="30vh"></a>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-left">
+                        <a href="" class="link-1">Contact Us</a>
+                        <a href="" class="link-2">FAQs</a>
+                        <a href="" class="link-3">Sources</a>
+                        <a href="" class="link-4">Privacy Policy</a>
+                        <a href="" class="link-5">Terms of Service</a>
+                    </div>
+                    <div class="footer-right">
+                        <p>© RoverWork 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 </body>
 
 </html>

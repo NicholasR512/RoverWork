@@ -83,7 +83,8 @@
                                                 <a href="/jobs/<%= job.id %>/edit" class="edit-button">Edit</a>
                                                 <form method="POST" action="/jobs/<%= job.id %>?_method=DELETE"
                                                     style="display:inline;">
-                                                    <button type="submit" class="delete-button">Delete</button>
+                                                    <button type="submit" class="delete-button"
+                                                        onclick="return confirm('Are you sure you want to delete this job?')">Delete</button>
                                                 </form>
                                                 <p>Status: <strong>
                                                         <%= job.status %>

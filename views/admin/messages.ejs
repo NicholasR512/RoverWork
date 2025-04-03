@@ -20,8 +20,8 @@
                         <% } else { %>
                             <% messages.forEach(msg=> { %>
                                 <div class="message-card">
-                                    <h3>Subject: <%= msg.subject %>
-                                    </h3>
+                                    <h4>Subject: <%= msg.subject %>
+                                    </h4>
                                     <p><strong>From:</strong>
                                         <%= msg.userEmail %>
                                     </p>
@@ -38,7 +38,6 @@
                                         </form>
                                     </div>
                                 </div>
-                                <hr>
                                 <% }) %>
                                     <% } %>
                 </div>
