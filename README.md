@@ -1,4 +1,4 @@
-# RoverWork 🧭
+# RoverWork 
 
 _A streamlined platform for local job discovery and student applications._
 
@@ -145,7 +145,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - UI inspiration: [undraw.co](https://undraw.co/)
 - Built with Node.js, Express, and MongoDB 💚
-- Managed and maintained by [YourName]
+- Managed and maintained by [Nicholas Ressler, Hargun Singh, and Anthony Dorsey]
 
 ---
 
