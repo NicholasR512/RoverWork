@@ -39,7 +39,7 @@ To the maximum extent permitted by law, RoverWork is not liable for any indirect
 
 ## 8. Governing Law
 
-These Terms are governed by the laws of the State of [Your State], without regard to conflict of law principles.
+These Terms are governed by the laws of the State of Pennsylvania, without regard to conflict of law principles.
 
 ## 9. Changes
 
