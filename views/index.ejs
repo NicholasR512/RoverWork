@@ -19,19 +19,69 @@
             <section class="section-1">
                 <div class="container-1">
                     <div class="content-1" data-aos="fade-right" data-aos-duration="3000">
-                        <div class="header-1">
-                            <h1>Connecting Students</h1>
-                        </div>
-                        <div class="subheader-1">
-                            <h3>
-                                RoverWork helps high school students find local jobs while giving businesses access to
-                                emerging
-                                talent.
-                            </h3>
-                        </div>
-                        <div>
-                            <button id="CTA-btn">Get Started</button>
-                        </div>
+                        <% if (currentUser) { %>
+                            <% if (currentUser.role==='Admin' ) { %>
+                                <div class="header-1">
+                                    <h1>Hello Admin</h1>
+                                </div>
+                                <div class="subheader-1">
+                                    <h3>
+                                        RoverWork helps high school students find local jobs while giving businesses
+                                        access to
+                                        emerging
+                                        talent.
+                                    </h3>
+                                </div>
+                                <div>
+                                    <button id="CTA-btn">Get Started</button>
+                                </div>
+                                <% } else if (currentUser.role==='Business' ) { %>
+                                    <div class="header-1">
+                                        <h1>Hello Business</h1>
+                                    </div>
+                                    <div class="subheader-1">
+                                        <h3>
+                                            RoverWork helps high school students find local jobs while giving businesses
+                                            access to
+                                            emerging
+                                            talent.
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <button id="CTA-btn">Get Started</button>
+                                    </div>
+                                    <% } else if (currentUser.role==='Student' ) { %>
+                                        <div class="header-1">
+                                            <h1>Hello Student</h1>
+                                        </div>
+                                        <div class="subheader-1">
+                                            <h3>
+                                                RoverWork helps high school students find local jobs while giving
+                                                businesses access to
+                                                emerging
+                                                talent.
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <button id="CTA-btn">Get Started</button>
+                                        </div>
+                                        <% } %>
+                                            <% } else { %>
+                                                <div class="header-1">
+                                                    <h1>Hello User</h1>
+                                                </div>
+                                                <div class="subheader-1">
+                                                    <h3>
+                                                        RoverWork helps high school students find local jobs while
+                                                        giving businesses access to
+                                                        emerging
+                                                        talent.
+                                                    </h3>
+                                                </div>
+                                                <div>
+                                                    <button id="CTA-btn">Get Started</button>
+                                                </div>
+                                                <% } %>
                     </div>
                     <div class="image-1" data-aos="fade-left" data-aos-duration="3000">
                         <img src="/img/interview.svg" alt="Interview Illustration" />
@@ -46,182 +96,185 @@
             <%- include('./chatbot') %>
 
 
-            <!-- Feature Section -->
-            <section class="section-2">
-                <div class="container-2">
-                    <div class="feature" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="f-header">
-                            <div class="f-icon">
-                                <img src="/img/briefcase.png" alt="" height="60">
+                <!-- Feature Section -->
+                <section class="section-2">
+                    <div class="container-2">
+                        <div class="feature" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="f-header">
+                                <div class="f-icon">
+                                    <img src="/img/briefcase.png" alt="" height="60">
+                                </div>
+                                <h3>Real Opportunities</h3>
                             </div>
-                            <h3>Real Opportunities</h3>
+                            <div class="f-text">
+                                <p>We connect students with real, verified local jobs—not internships that go nowhere or
+                                    listings
+                                    that are outdated.</p>
+                            </div>
                         </div>
-                        <div class="f-text">
-                            <p>We connect students with real, verified local jobs—not internships that go nowhere or
-                                listings
-                                that are outdated.</p>
+                        <div class="feature" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="f-header">
+                                <div class="f-icon">
+                                    <img src="/img/coin.png" alt="" height="60">
+                                </div>
+                                <h3>Build Experience</h3>
+                            </div>
+                            <div class="f-text">
+                                <p>Students get paid while building valuable job experience, helping them stand out for
+                                    college and
+                                    careers.</p>
+                            </div>
+                        </div>
+                        <div class="feature" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="f-header">
+                                <div class="f-icon">
+                                    <img src="/img/profile.png" alt="" height="60">
+                                </div>
+                                <h3>Personalized Profiles</h3>
+                            </div>
+                            <div class="f-text">
+                                <p>Create a profile, apply in one click, and track job applications—everything is
+                                    streamlined and
+                                    simple.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="feature" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="f-header">
-                            <div class="f-icon">
-                                <img src="/img/coin.png" alt="" height="60">
-                            </div>
-                            <h3>Build Experience</h3>
-                        </div>
-                        <div class="f-text">
-                            <p>Students get paid while building valuable job experience, helping them stand out for
-                                college and
-                                careers.</p>
-                        </div>
-                    </div>
-                    <div class="feature" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="f-header">
-                            <div class="f-icon">
-                                <img src="/img/profile.png" alt="" height="60">
-                            </div>
-                            <h3>Personalized Profiles</h3>
-                        </div>
-                        <div class="f-text">
-                            <p>Create a profile, apply in one click, and track job applications—everything is
-                                streamlined and
-                                simple.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Student Benefits -->
-            <section class="section-3">
-                <div class="container-4">
-                    <div class="content-4" data-aos="zoom-in-right">
-                        <div class="header-4">
-                            <h2>Why Students Love Our Platform</h2>
+                <!-- Student Benefits -->
+                <section class="section-3">
+                    <div class="container-4">
+                        <div class="content-4" data-aos="zoom-in-right">
+                            <div class="header-4">
+                                <h2>Why Students Love Our Platform</h2>
+                            </div>
+                            <div class="red-line"></div>
+                            <div class="text-4">
+                                <p>We make it easy for students to discover real job opportunities from local employers,
+                                    all
+                                    in one
+                                    place. Whether you're looking for part-time work, internships, or career-building
+                                    experience,
+                                    we’ve got your back.</p>
+                                <ul>
+                                    <li>🔍 Effortless job searching by category, employer, or location</li>
+                                    <li>📄 One-click application process with saved profiles</li>
+                                    <li>🗂️ Dashboard to track applications and statuses</li>
+                                    <li>📬 Get notified when new relevant jobs are posted</li>
+                                    <li>👨‍💼 Direct access to real employers in your community</li>
+                                </ul>
+                                <p>Start building your future—one opportunity at a time.</p>
+                            </div>
                         </div>
-                        <div class="red-line"></div>
-                        <div class="text-4">
-                            <p>We make it easy for students to discover real job opportunities from local employers, all
-                                in one
-                                place. Whether you're looking for part-time work, internships, or career-building
-                                experience,
-                                we’ve got your back.</p>
-                            <ul>
-                                <li>🔍 Effortless job searching by category, employer, or location</li>
-                                <li>📄 One-click application process with saved profiles</li>
-                                <li>🗂️ Dashboard to track applications and statuses</li>
-                                <li>📬 Get notified when new relevant jobs are posted</li>
-                                <li>👨‍💼 Direct access to real employers in your community</li>
-                            </ul>
-                            <p>Start building your future—one opportunity at a time.</p>
+                        <div class="image-4" data-aos="zoom-in-left">
+                            <img src="/img/money.svg" alt="Student Working" />
                         </div>
                     </div>
-                    <div class="image-4" data-aos="zoom-in-left">
-                        <img src="/img/money.svg" alt="Student Working" />
-                    </div>
-                </div>
 
-                <!-- Employer Benefits -->
-                <div class="container-4 container-5">
-                    <div class="content-4 content-5" data-aos="zoom-in-left">
-                        <div class="header-4">
-                            <h2>Why Employers Choose Us</h2>
+                    <!-- Employer Benefits -->
+                    <div class="container-4 container-5">
+                        <div class="content-4 content-5" data-aos="zoom-in-left">
+                            <div class="header-4">
+                                <h2>Why Employers Choose Us</h2>
+                            </div>
+                            <div class="red-line"></div>
+                            <div class="text-4">
+                                <p>Our platform connects businesses with driven, local students eager to gain work
+                                    experience.
+                                    Whether you need seasonal help or long-term interns, we make recruitment simple and
+                                    effective.
+                                </p>
+                                <ul>
+                                    <li>📤 Easy job posting in under 2 minutes</li>
+                                    <li>✅ Admin approval ensures quality and relevance</li>
+                                    <li>👀 Access to a motivated pool of student applicants</li>
+                                    <li>📊 Post tracking and application management tools</li>
+                                    <li>🔒 Secure platform with verified student users</li>
+                                </ul>
+                                <p>Support your local community and build your future workforce at the same time.</p>
+                            </div>
                         </div>
-                        <div class="red-line"></div>
-                        <div class="text-4">
-                            <p>Our platform connects businesses with driven, local students eager to gain work
-                                experience.
-                                Whether you need seasonal help or long-term interns, we make recruitment simple and
-                                effective.
-                            </p>
-                            <ul>
-                                <li>📤 Easy job posting in under 2 minutes</li>
-                                <li>✅ Admin approval ensures quality and relevance</li>
-                                <li>👀 Access to a motivated pool of student applicants</li>
-                                <li>📊 Post tracking and application management tools</li>
-                                <li>🔒 Secure platform with verified student users</li>
-                            </ul>
-                            <p>Support your local community and build your future workforce at the same time.</p>
+                        <div class="image-4 image-5" data-aos="zoom-in-right">
+                            <img src="/img/employee.svg" alt="Employer Posting Jobs" />
                         </div>
                     </div>
-                    <div class="image-4 image-5" data-aos="zoom-in-right">
-                        <img src="/img/employee.svg" alt="Employer Posting Jobs" />
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- FAQ Section -->
-            <h2 id="faq-title">Frequently Asked Questions</h2>
-            <section class="section-4">
-                <div class="container-6">
-                    <div class="faq" data-aos="zoom-in" data-aos-duration="750">
-                        <div class="faq-top">
-                            <div class="q">
-                                <h4>Is this platform free for students?</h4>
+                <!-- FAQ Section -->
+                <h2 id="faq-title">Frequently Asked Questions</h2>
+                <section class="section-4">
+                    <div class="container-6">
+                        <div class="faq" data-aos="zoom-in" data-aos-duration="750">
+                            <div class="faq-top">
+                                <div class="q">
+                                    <h4>Is this platform free for students?</h4>
+                                </div>
+                                <div class="arrow">
+                                    <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
+                                </div>
                             </div>
-                            <div class="arrow">
-                                <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
+                            <div class="a" id="a">
+                                <p>Yes! Students can search, apply, and manage job applications 100% free.</p>
                             </div>
                         </div>
-                        <div class="a" id="a">
-                            <p>Yes! Students can search, apply, and manage job applications 100% free.</p>
+                        <div class="faq" data-aos="zoom-in" data-aos-duration="750">
+                            <div class="faq-top">
+                                <div class="q">
+                                    <h4>How do employers get approved?</h4>
+                                </div>
+                                <div class="arrow">
+                                    <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
+                                </div>
+                            </div>
+                            <div class="a" id="a">
+                                <p>Employers submit a form, and our team reviews it to ensure job quality and relevance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="faq" data-aos="zoom-in" data-aos-duration="750">
+                            <div class="faq-top">
+                                <div class="q">
+                                    <h4>Can I apply to multiple jobs?</h4>
+                                </div>
+                                <div class="arrow">
+                                    <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
+                                </div>
+                            </div>
+                            <div class="a" id="a">
+                                <p>Absolutely! Apply to as many listings as you'd like that match your interests.</p>
+                            </div>
+                        </div>
+                        <div class="faq" data-aos="zoom-in" data-aos-duration="750">
+                            <div class="faq-top">
+                                <div class="q">
+                                    <h4>Is my information safe?</h4>
+                                </div>
+                                <div class="arrow">
+                                    <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
+                                </div>
+                            </div>
+                            <div class="a" id="a">
+                                <p>Yes, we take student privacy seriously and never share your info without permission.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="faq" data-aos="zoom-in" data-aos-duration="750">
-                        <div class="faq-top">
-                            <div class="q">
-                                <h4>How do employers get approved?</h4>
-                            </div>
-                            <div class="arrow">
-                                <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
-                            </div>
-                        </div>
-                        <div class="a" id="a">
-                            <p>Employers submit a form, and our team reviews it to ensure job quality and relevance.</p>
-                        </div>
-                    </div>
-                    <div class="faq" data-aos="zoom-in" data-aos-duration="750">
-                        <div class="faq-top">
-                            <div class="q">
-                                <h4>Can I apply to multiple jobs?</h4>
-                            </div>
-                            <div class="arrow">
-                                <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
-                            </div>
-                        </div>
-                        <div class="a" id="a">
-                            <p>Absolutely! Apply to as many listings as you'd like that match your interests.</p>
-                        </div>
-                    </div>
-                    <div class="faq" data-aos="zoom-in" data-aos-duration="750">
-                        <div class="faq-top">
-                            <div class="q">
-                                <h4>Is my information safe?</h4>
-                            </div>
-                            <div class="arrow">
-                                <button id="arrow-btn" onclick="magic(this)">&#9660;</button>
-                            </div>
-                        </div>
-                        <div class="a" id="a">
-                            <p>Yes, we take student privacy seriously and never share your info without permission.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <%- include('partials/footer.ejs') %>
-                <script>
-                    function magic(button) {
-                        var answer = button.closest(".faq").querySelector(".a");
-                        var btn = button;
+                </section>
+                <%- include('partials/footer.ejs') %>
+                    <script>
+                        function magic(button) {
+                            var answer = button.closest(".faq").querySelector(".a");
+                            var btn = button;
 
-                        if (answer.style.display === "none" || answer.style.display === "") {
-                            answer.style.display = "block"; // Show the answer
-                            btn.innerHTML = "&#9650;"; // Change to up arrow
-                        } else {
-                            answer.style.display = "none"; // Hide the answer
-                            btn.innerHTML = "&#9660;"; // Change to down arrow
+                            if (answer.style.display === "none" || answer.style.display === "") {
+                                answer.style.display = "block"; // Show the answer
+                                btn.innerHTML = "&#9650;"; // Change to up arrow
+                            } else {
+                                answer.style.display = "none"; // Hide the answer
+                                btn.innerHTML = "&#9660;"; // Change to down arrow
+                            }
                         }
-                    }
-                </script>
+                    </script>
     </body>
 
 </html>
