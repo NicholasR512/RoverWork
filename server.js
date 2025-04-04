@@ -33,7 +33,13 @@ app.use(express.static('public')); // Serve static files
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false })); // Parse URL-encoded bodies
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("✅ Connected to MongoDB Atlas"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
+  
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error)); // Log connection errors
 db.once('open', () => console.log('Connected to MongoDB!')); // Confirm connection success

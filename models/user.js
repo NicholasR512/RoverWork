@@ -27,12 +27,16 @@ const userSchema = new mongoose.Schema({
 
 // Middleware to hash the password before saving the user
 userSchema.pre('save', async function (next) {
-    // Hash the password only if it has been modified
-    if (this.isModified('password')) {
-        this.password = await bcrypt.hash(this.password, 10);
+    try {
+        if (this.isModified('password')) {
+            this.password = await bcrypt.hash(this.password, 10);
+        }
+        next();
+    } catch (err) {
+        next(err); // Pass the error to Mongoose, so it doesn't crash the app
     }
-    next();
 });
+
 
 // Method to verify the password
 userSchema.methods.isValidPassword = async function (password) {
