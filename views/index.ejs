@@ -22,7 +22,9 @@
                         <% if (currentUser) { %>
                             <% if (currentUser.role==='Admin' ) { %>
                                 <div class="header-1">
-                                    <h1>Hello Admin</h1>
+                                    <h1>
+                                        Hello <%= user.username %>!
+                                    </h1>
                                 </div>
                                 <div class="subheader-1">
                                     <h3>
@@ -37,7 +39,8 @@
                                 </div>
                                 <% } else if (currentUser.role==='Business' ) { %>
                                     <div class="header-1">
-                                        <h1>Hello Business</h1>
+                                        <h1>Hello <%= user.username %>!
+                                        </h1>
                                     </div>
                                     <div class="subheader-1">
                                         <h3>
@@ -52,7 +55,8 @@
                                     </div>
                                     <% } else if (currentUser.role==='Student' ) { %>
                                         <div class="header-1">
-                                            <h1>Hello Student</h1>
+                                            <h1> Hello <%= user.username %>!
+                                            </h1>
                                         </div>
                                         <div class="subheader-1">
                                             <h3>
