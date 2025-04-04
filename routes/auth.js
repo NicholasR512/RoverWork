@@ -6,8 +6,9 @@ const router = express.Router();
 
 // Register Page - Render the registration form
 router.get('/register', (req, res) => {
-    res.render('auth/register'); // Render the register page
+    res.render('auth/register', { errorMessage: null });
 });
+
 
 // Handle user registration
 router.post('/register', async (req, res) => {

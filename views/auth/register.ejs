@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +10,43 @@
   <!---Custom CSS File--->
   <link rel="stylesheet" href="/styles/auth.css">
 </head>
+
 <body>
   <div class="container">
     <div class="registration form">
-        <header class="header-container">
-            <a href="/"><i class="fas fa-angle-double-left header-icon"></i></a>
-            <span>Sign Up</span>
-          </header> 
+      <header class="header-container">
+        <a href="/"><i class="fas fa-angle-double-left header-icon"></i></a>
+        <span>Sign Up</span>
+      </header>
       <form id="registerForm" action="/auth/register" method="POST">
         <input type="text" name="username" placeholder="Enter your username">
         <input type="email" name="email" placeholder="Enter your email">
         <input type="password" name="password" placeholder="Enter a password">
         <select name="role" id="role" class="dropdown" required>
-            <option value="" disabled selected>Choose your account type</option>
-            <option value="Student">Student</option>
-            <option value="Business">Employer</option>
+          <option value="" disabled selected>Choose your account type</option>
+          <option value="Student">Student</option>
+          <option value="Business">Employer</option>
         </select>
         <input type="submit" class="button" value="Sign Up">
       </form>
       <div class="signup">
         <span class="signup">
-            <p>Already have an account? <a href="/auth/login">Login here</a></p>
+          <p>Already have an account? <a href="/auth/login">Login here</a></p>
         </span>
       </div>
     </div>
   </div>
 </body>
 <script>
-    document.getElementById('registerForm').addEventListener('submit', function (e) {
-        const role = document.getElementById('role').value;
-        const email = document.querySelector('input[name="email"]').value;
-        
-        if (role === 'Student' && !email.endsWith('@roverkids.org')) {
-            e.preventDefault();
-            alert('Students must use an email that ends with @roverkids.org.');
-        }
-    });
+  document.getElementById('registerForm').addEventListener('submit', function (e) {
+    const role = document.getElementById('role').value;
+    const email = document.querySelector('input[name="email"]').value;
+
+    if (role === 'Student' && !email.endsWith('@roverkids.org')) {
+      e.preventDefault();
+      alert('Students must use an email that ends with @roverkids.org.');
+    }
+  });
 </script>
+
 </html>
