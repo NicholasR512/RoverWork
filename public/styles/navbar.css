@@ -19,7 +19,7 @@ html {
 }
 
 h1 {
-    font-size: clamp(2.75rem, 4vw, 6rem);
+    font-size: clamp(3rem, 4vw, 6rem);
 }
 
 h2 {
